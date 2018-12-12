@@ -14,7 +14,7 @@ cp -vf ./start-ssh-agent ~/local/bin
 ```
 3. Open Task Scheduler and create a scheduled task (optionally in a directory `MyTasks`) to execute this command at login
 ```
-powershell -WindowStyle Hidden -Command C:\Windows\System32\bash.exe -c start-ssh-agent
+powershell -NoProfile -WindowStyle Hidden -Command C:\Windows\System32\bash.exe -c start-ssh-agent
 ```
 4. After the task is created, open the task properties and under conditions, uncheck power options.
 5. Finally, open Bash, and edit your `.bashrc` to include the following:
