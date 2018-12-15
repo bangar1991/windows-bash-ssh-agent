@@ -14,15 +14,11 @@ cp -vf ./start-ssh-agent ~/local/bin
 ```
 3. Open Task Scheduler and create a scheduled task (optionally in a directory `MyTasks`) to execute this command at login
 ```
-powershell -NoProfile -WindowStyle Hidden -Command C:\Windows\System32\bash.exe -c start-ssh-agent
+powershell -NoProfile -WindowStyle Hidden -Command C:\Windows\System32\bash.exe -c "~/local/bin/start-ssh-agent"
 ```
 4. After the task is created, open the task properties and under conditions, uncheck power options.
 5. Finally, open Bash, and edit your `.bashrc` to include the following:
 ```
-# Append ~/local/bin to PATH
-# Useful for installing binaries from source
-export PATH="$PATH:$HOME/local/bin"
-
 # Make shell aware of SSH_AGENT_PID and SSH_AUTH_SOCK variables
 # so that processes can communicate with ssh-agent
 . ~/.ssh/environment > /dev/null
